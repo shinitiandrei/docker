@@ -50,6 +50,7 @@ module DockerCookbook
       execute "enable docker on suse" do
         command "sudo systemctl enable docker"
         only_if "zypper products -i | grep SUSE"
+      end
     end
 
     action :restart do

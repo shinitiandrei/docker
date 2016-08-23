@@ -61,6 +61,10 @@ if defined?(ChefSpec)
     ChefSpec::Matchers::ResourceMatcher.new(:docker_service, :restart, resource_name)
   end
 
+  def enable_docker_service(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:docker_service, :enable, resource_name)
+  end
+
   ########################
   # docker_service_manager
   ########################
@@ -84,6 +88,10 @@ if defined?(ChefSpec)
 
   def restart_docker_service_manager(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:docker_service_manager, :restart, resource_name)
+  end
+
+  def enable_docker_service_manager(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:docker_service_manager, :enable, resource_name)
   end
 
   def create_docker_service_manager_execute(resource_name)
