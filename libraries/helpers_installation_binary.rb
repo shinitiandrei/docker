@@ -57,6 +57,8 @@ module DockerCookbook
            node['platform_family'] == 'rhel' && node['platform_version'].to_i < 7 ||
            node['platform_family'] == 'debian' && node['platform_version'].to_i <= 7
           '1.6.2'
+        elsif node['platform'] == 'suse'
+          '1.8.3'
         else
           '1.10.2'
         end

@@ -122,5 +122,11 @@ module DockerCookbook
         action :restart
       end
     end
+
+    action :enable do
+      svc_manager do
+        action :enable
+      end
+    end
   end
 end

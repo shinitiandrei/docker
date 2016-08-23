@@ -57,6 +57,11 @@ module DockerCookbook
         false
       end
 
+      def suse?
+        return true if node['platform'] == 'suse' && node['platform_version'] == '12.1'
+        false
+      end
+
       # https://github.com/chef/chef/issues/4103
       def version_string(v)
         return "#{v}-1.el6" if el6?
@@ -70,12 +75,12 @@ module DockerCookbook
         return "#{v}-0~vivid" if vivid?
         return "#{v}-0~wily" if wily?
         return "#{v}-0~xenial" if xenial?
-        v
       end
 
       def default_docker_version
         return '1.7.1' if el6?
         return '1.7.1' if amazon?
+        return '1.8.3' if suse?
         return '1.9.1' if vivid?
         '1.11.2'
       end
