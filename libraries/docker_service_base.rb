@@ -75,7 +75,7 @@ module DockerCookbook
     # docker-wait-ready timeout
     property :service_timeout, Integer, default: 20
 
-    allowed_actions :start, :stop, :restart
+    allowed_actions :start, :stop, :restart, :enable
 
     alias label labels
     alias tlscacert tls_ca_cert
