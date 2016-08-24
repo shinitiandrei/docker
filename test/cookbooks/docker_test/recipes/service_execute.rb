@@ -19,3 +19,8 @@ docker_container 'hello-world' do
   command '/hello'
   action :create
 end
+
+docker_service 'suse' do
+  host 'unix:///var/run/docker.sock'
+  action :enable
+end
