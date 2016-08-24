@@ -31,7 +31,19 @@ module DockerCookbook
       action_start
     end
 
+    action :enable do
+      action_enable
+    end
+
     action_class.class_eval do
+      def action_enable
+        execute 'enable docker on suse' do
+          command 'sudo systemctl enable docker'
+          only_if 'zypper products -i | grep SUSE'
+          action :run
+        end
+      end
+
       def create_init
         execute 'groupadd docker' do
           not_if 'getent group docker'
